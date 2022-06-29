@@ -9,7 +9,7 @@ import java.util.Objects;
 @Setter @Getter @ToString
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class StudentModel {
+public class Student {
 
     // Fields
     String email;
@@ -20,7 +20,7 @@ public class StudentModel {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StudentModel that = (StudentModel) o;
+        Student that = (Student) o;
         return email.equals(that.email) && name.equals(that.name) && password.equals(that.password);
     }
 
