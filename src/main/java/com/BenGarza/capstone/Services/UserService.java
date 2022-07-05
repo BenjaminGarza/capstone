@@ -27,7 +27,7 @@ public class UserService {
         Optional<User> userOptional = userRepository
                 .findUserByEmail(user.getEmail());
         if(userOptional.isPresent()) {
-            throw new IllegalStateException("email is already in use");
+            throw new IllegalStateException("Email is already in use");
         }
        userRepository.save(user);
     }

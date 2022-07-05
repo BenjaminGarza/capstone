@@ -34,8 +34,18 @@ public class CourseService {
         Optional<Course> courseOptional = courseRepository
                 .findCourseByName(course.getName());
         if(courseOptional.isPresent()) {
-            throw new IllegalStateException("email is already in use");
+            throw new IllegalStateException("Course name is already in use");
         }
         courseRepository.save(course);
+    }
+
+    public void deleteCourse(Long courseId) {
+        boolean exists = courseRepository.existsById(courseId);
+        if (!exists){
+            throw new IllegalStateException("Course does not exist. Id:" + courseId);
+        }
+
+        courseRepository.deleteById(courseId);
+
     }
 }

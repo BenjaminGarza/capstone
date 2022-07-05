@@ -35,8 +35,18 @@ public class LessonService {
         Optional<Lesson> lessonOptional = lessonRepository
                 .findLessonById(lesson.getId());
         if(lessonOptional.isPresent()) {
-            throw new IllegalStateException("email is already in use");
+            throw new IllegalStateException("Duplicate Lesson");
         }
         lessonRepository.save(lesson);
+    }
+
+    public void deleteLesson(Long lessonId) {
+
+        boolean exists = lessonRepository.existsById(lessonId);
+        if (!exists){
+            throw new IllegalStateException("Lesson does not exist. Id:" + lessonId);
+        }
+
+        lessonRepository.deleteById(lessonId);
     }
 }

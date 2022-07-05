@@ -5,9 +5,7 @@ import com.BenGarza.capstone.Models.User;
 import com.BenGarza.capstone.Services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,4 +27,8 @@ public class CourseController {
     public void registerNewCourse(@RequestBody Course course) {
         courseService.addNewCourse(course);
     }
+@DeleteMapping(path = "{courseId")
+    public void deleteCourse(@PathVariable("courseId") Long courseId) {
+        courseService.deleteCourse(courseId);
+}
 }
