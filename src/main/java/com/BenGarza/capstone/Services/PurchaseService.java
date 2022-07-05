@@ -29,4 +29,7 @@ public class PurchaseService {
         }
 
 
+    public void addNewPurchase(Purchase purchase) {
+        System.out.println(purchase);
+    }
 }

@@ -21,4 +21,8 @@ public class UserService {
 
         return userRepository.findAll();
     }
+
+    public void addNewUser(User user) {
+        System.out.println(user);
+    }
 }

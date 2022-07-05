@@ -30,4 +30,7 @@ public class LessonService {
         }
 
 
+    public void addNewLesson(Lesson lesson) {
+        System.out.println(lesson);
+    }
 }
