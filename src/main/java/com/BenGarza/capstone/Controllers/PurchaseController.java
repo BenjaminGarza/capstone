@@ -30,7 +30,7 @@ public class PurchaseController {
             this.purchaseService = purchaseService;
         }
 
-        @GetMapping("/userinfo")
+        @GetMapping("/purchaseinfo")
         public List<Purchase> getPurchases(Model model){
 
             log.info("we did it");
