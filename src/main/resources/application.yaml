@@ -17,3 +17,6 @@ server:
     include-stacktrace: always
     include-message: always
     include-exception: true
+  spring:
+    jpa:
+      show-sql: true

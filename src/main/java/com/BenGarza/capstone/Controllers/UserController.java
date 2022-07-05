@@ -16,11 +16,11 @@ import java.util.List;
 @Slf4j
 public class UserController {
 
-    private final UserService studentService;
+    private final UserService userService;
 
     @Autowired
-    public UserController(UserService studentService) {
-        this.studentService = studentService;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping("/userinfo")
@@ -28,7 +28,7 @@ public class UserController {
       //  User user = new User( "test@gmail.com", "Ben",  "password");
        // model.addAttribute("stu", user);
         log.info("we did it");
-        return studentService.getUsers();
+        return userService.getUsers();
 
     }
 }
