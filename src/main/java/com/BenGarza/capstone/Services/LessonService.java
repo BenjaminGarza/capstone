@@ -1,10 +1,13 @@
 package com.BenGarza.capstone.Services;
 
+import com.BenGarza.capstone.Models.Course;
 import com.BenGarza.capstone.Models.Lesson;
 import com.BenGarza.capstone.Repository.LessonRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -48,5 +51,28 @@ public class LessonService {
         }
 
         lessonRepository.deleteById(lessonId);
+    }
+    @Transactional
+    public void updateLesson(Long lessonId, Boolean done, String name, String url) {
+
+
+            Lesson lesson = lessonRepository.findById(lessonId).orElseThrow(() -> new IllegalStateException(
+                    "Lesson with id" + lessonId + "does not exist."
+            ));
+            if (name != null &&
+                    name.length() > 0 &&
+                    !Objects.equals(lesson.getName(), name)){
+                lesson.setName(name);
+            }
+            if (done != null &&
+                    !Objects.equals(lesson.getDone(), done)){
+                lesson.setDone(done);
+            }
+            if (url != null &&
+                    url.length() > 0 &&
+                    !Objects.equals(lesson.getUrl(), url)){
+                lesson.setUrl(url);
+            }
+
     }
 }

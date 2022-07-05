@@ -35,4 +35,12 @@ public class LessonController {
     public void deleteLesson(@PathVariable("lessonId") Long lessonId) {
         lessonService.deleteLesson(lessonId);
     }
+    @PutMapping(path = "{lessonId}")
+    public void updateLesson(
+            @PathVariable("lessonId") Long lessonId,
+            @RequestParam(required = false)Boolean done,
+            @RequestParam(required = false)String name,
+            @RequestParam(required = false)String url) {
+        lessonService.updateLesson(lessonId,done,name,url );
+    }
 }

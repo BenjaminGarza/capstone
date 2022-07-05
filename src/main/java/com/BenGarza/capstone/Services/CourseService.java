@@ -4,8 +4,10 @@ import com.BenGarza.capstone.Models.Course;
 import com.BenGarza.capstone.Models.User;
 import com.BenGarza.capstone.Repository.CourseRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -47,5 +49,26 @@ public class CourseService {
 
         courseRepository.deleteById(courseId);
 
+    }
+@Transactional
+    public void updateCourse(Long courseId, String name, String description, Double price) {
+    Course course = courseRepository.findById(courseId).orElseThrow(() -> new IllegalStateException(
+            "Course with id" + courseId + "does not exist."
+    ));
+    if (name != null &&
+            name.length() > 0 &&
+            !Objects.equals(course.getName(), name)){
+        course.setName(name);
+    }
+    if (description != null &&
+            description.length() > 0 &&
+            !Objects.equals(course.getDescription(), description)){
+        course.setDescription(description);
+    }
+    if (price != null &&
+            price >= 0 &&
+            !Objects.equals(course.getPrice(), price)){
+        course.setPrice(price);
+    }
     }
 }
