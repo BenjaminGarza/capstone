@@ -5,9 +5,7 @@ import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.Table;
 
 import javax.persistence.*;
-import javax.print.attribute.standard.DateTimeAtCompleted;
-import java.math.BigDecimal;
-import java.util.Objects;
+import java.util.Date;
 
 @NoArgsConstructor
 @Setter
@@ -29,9 +27,14 @@ public class Purchase {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column
+    double price;
+
     @NonNull @Column
-    BigDecimal Price;
+    Date date;
 
-
-
+    public Purchase(double price, @NonNull Date date) {
+        this.price = price;
+        this.date = date;
+    }
 }

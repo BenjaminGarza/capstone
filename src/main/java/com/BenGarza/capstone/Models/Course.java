@@ -34,12 +34,15 @@ public class Course {
 
     // Fields
     @NonNull @Column
-    Integer price;
+    String name;
+    @NonNull @Column
+    Double price;
 
     @NonNull @Column
     String description;
 
-    public Course(@NonNull Integer price, @NonNull String description) {
+    public Course(@NonNull String name, @NonNull Double price, @NonNull String description) {
+        this.name = name;
         this.price = price;
         this.description = description;
     }
