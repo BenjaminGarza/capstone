@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @Controller
-@RestController
 @Slf4j
 public class PurchaseController {
 
@@ -32,14 +31,14 @@ public class PurchaseController {
             this.purchaseService = purchaseService;
         }
 
-        @GetMapping("/purchaseinfo")
+        @GetMapping("/cart")
         public List<Purchase> getPurchases(Model model){
 
             log.info("we did it");
             return purchaseService.getPurchases();
 
     }
-    @PostMapping("/registerpurchase")
+    @PostMapping("/cart")
     public void registerNewPurchase(@RequestBody Purchase purchase) {
         purchaseService.addNewPurchase(purchase);
     }

@@ -4,11 +4,13 @@ import com.BenGarza.capstone.Models.Course;
 import com.BenGarza.capstone.Models.User;
 import com.BenGarza.capstone.Services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Controller
 public class CourseController {
     private final CourseService courseService;
 
@@ -17,17 +19,18 @@ public class CourseController {
         this.courseService = courseService;
     }
 
-    @GetMapping("/courseinfo")
+    @GetMapping("/courses")
     public List<Course> getCourses(Model model){
         //  User user = new User( "test@gmail.com", "Ben",  "password");
         // model.addAttribute("stu", user);
         return courseService.getCourses();
+
     }
-    @PostMapping("/registercourse")
+    @PostMapping("/create")
     public void registerNewCourse(@RequestBody Course course) {
         courseService.addNewCourse(course);
     }
-@DeleteMapping(path = "{courseId")
+@DeleteMapping(path = "{courseId}")
     public void deleteCourse(@PathVariable("courseId") Long courseId) {
         courseService.deleteCourse(courseId);
 }

@@ -5,11 +5,13 @@ import com.BenGarza.capstone.Models.User;
 import com.BenGarza.capstone.Services.CourseService;
 import com.BenGarza.capstone.Services.LessonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Controller
 public class LessonController {
 
         private final LessonService lessonService;
@@ -31,7 +33,7 @@ public class LessonController {
         lessonService.addNewLesson(lesson);
     }
 
-    @DeleteMapping(path = "{lessonId")
+    @DeleteMapping(path = "{lessonId}")
     public void deleteLesson(@PathVariable("lessonId") Long lessonId) {
         lessonService.deleteLesson(lessonId);
     }
