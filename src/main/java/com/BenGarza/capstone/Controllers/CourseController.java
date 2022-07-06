@@ -1,7 +1,6 @@
 package com.BenGarza.capstone.Controllers;
 
 import com.BenGarza.capstone.Models.Course;
-import com.BenGarza.capstone.Models.User;
 import com.BenGarza.capstone.Services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +23,9 @@ public class CourseController {
         //  User user = new User( "test@gmail.com", "Ben",  "password");
         // model.addAttribute("stu", user);
         return courseService.getCourses();
-
+    }
+    @GetMapping("/create")
+    public void getCreate(){
     }
     @PostMapping("/create")
     public void registerNewCourse(@RequestBody Course course) {
