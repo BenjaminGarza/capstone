@@ -1,6 +1,5 @@
-# capstone
+# Capstone
 
-A project created for the Capstone at PerScholas.
 The purpose of this project is an online learning platform where
 users can purchase and complete courses.
 
